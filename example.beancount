@@ -1,0 +1,7 @@
+2000-01-01 custom "fava-extension" "monthly_expenses" "{'accounts':['Expenses','Expenses:Life','Expenses:Life:Transportation'],'account_used_to_get_valid_month':'Expenses:Life:General'}"
+
+option "operating_currency" "USD"
+plugin "beancount.plugins.auto"
+
+include "example_data.beancount"
+

@@ -1,0 +1,4 @@
+name: environment
+
+dependencies:
+    - python=3.10

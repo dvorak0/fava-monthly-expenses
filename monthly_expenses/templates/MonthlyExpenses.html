@@ -1,0 +1,44 @@
+{% import "_query_table.html" as querytable with context %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+
+<style>
+.flex-grid {
+  display: flex;
+  justify-content: space-around;
+}
+.col {
+  flex: 1;
+}
+.ok_div { color: green; }
+.failed_div { color: red; }
+</style>
+
+<h2>Monthly Expenses</h2>
+<br />
+
+      {% set reports = extension.get_all_report() %}
+      {% for report in reports %}
+      <div>
+	  <h2>
+              {{ report[3] }} 
+	  </h2>
+	  status:
+	  {% if report[4] == "ok": %}
+	      <div class='ok_div'> ok </div>
+	  {% else %}
+	      <div class='failed_div'> failed:  {{ report[4] }} </div>
+	  {% endif %}
+	  
+      </div>
+      <div class="flex-grid">
+	  <div class="col">
+              {{report[0] | safe}}
+          </div>
+	  <div class="col">
+              {{report[1] | safe}}
+          </div>
+	  <div class="col">
+              {{report[2] | safe}}
+          </div>
+      </div>
+      {% endfor %}
