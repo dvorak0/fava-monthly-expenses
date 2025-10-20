@@ -5,8 +5,13 @@ This is a simple example of Fava's extension reports system.
 
 from fava.ext import FavaExtensionBase
 
-from beancount.query.query import run_query
-from beancount.query.numberify import numberify_results
+try:
+    from beancount.query.query import run_query
+    from beancount.query.numberify import numberify_results
+except ModuleNotFoundError:
+    #beancount v3 support
+    from beanquery.query import run_query
+    from beanquery.numberify import numberify_results
 
 import numpy as np
 import pandas as pd
