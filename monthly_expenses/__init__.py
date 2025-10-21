@@ -95,7 +95,7 @@ class MonthlyExpenses(FavaExtensionBase):  # pragma: no cover
         # expenses table
         a = df.groupby(groups_name).sum().round(decimals=2).to_html()
         # monthly sum table
-        b = df.groupby(groups_name).sum().sum().to_frame().to_html()
+        b = df.groupby(groups_name).sum().sum().round(decimals=2).to_frame().to_html()
         # month count table
         c = pd.DataFrame(month_count.items(), columns=['Year', 'count']).to_html()
         return a, b, c, account, "ok"
